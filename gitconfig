@@ -1,0 +1,21 @@
+[user]
+	name = gaodayue
+	email = dygao66@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[credential]
+	helper = osxkeychain
+[diff]
+	tool = diffmerge
+[difftool]
+	prompt = false
+[difftool "diffmerge"]
+	cmd = "diffmerge \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[alias]
+	lol = log --oneline --graph --decorate
+    history = log --follow -p

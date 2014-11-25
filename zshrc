@@ -76,16 +76,10 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ -f ~/dotfiles/custom_env.sh ]]; then
-    source ~/dotfiles/custom_env.sh
-fi
-
 # Recursively download folder hosted on HTTP server
 # Example: fetch all CS61B homework into hw folder
 # wgetr --cut-dirs=2  http://www.cs.berkeley.edu/\~jrs/61b/hw/
 alias wgetr='wget -r -nH --no-parent --reject "index.html*"'
-
-export JAVA_HOME=`/usr/libexec/java_home`
 
 # utility functions
 function make_cscope {

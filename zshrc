@@ -86,3 +86,14 @@ fi
 alias wgetr='wget -r -nH --no-parent --reject "index.html*"'
 
 export JAVA_HOME=`/usr/libexec/java_home`
+
+# utility functions
+function make_cscope {
+    # test existence of cscope
+    if hash cscope 2>/dev/null; then
+        find . -name "*.c" -o -name "*.cpp" -o -name "*.cc" -o -name "*.h" > cscope.files
+        cscope -q -R -b -i cscope.files
+    else
+        echo "cscope doesn't exist!"
+    fi
+}

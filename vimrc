@@ -14,7 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -127,8 +127,8 @@ if has("cscope")
 endif
 
 " YouCompleteMe
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-"nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " -------------------------------------
 

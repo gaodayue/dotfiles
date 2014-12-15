@@ -1,24 +1,4 @@
-"--------------------------------------
-"               Vundle
-"--------------------------------------
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Bundle 'croaky/vim-colors-github'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-
-call vundle#end()
-filetype plugin indent on
-
 
 "--------------------------------------
 "              Key Map
@@ -47,86 +27,13 @@ map <leader>bd :bd<cr>
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-
 "--------------------------------------
 "               Plugin
 "--------------------------------------
-" => Powerline
-set t_Co=256
-set laststatus=2
-
-" => Nerd Tree
-" -------------------------------------
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark
-map <leader>nf :NERDTreeFind<cr>
-let NERDTreeIgnore=['.o$[[file]]', '.class[[file]]', '.pyc[[file]]']
-" -------------------------------------
-
-" => Ctrl-P
-" -------------------------------------
-" let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-" -------------------------------------
-
-" => ctags & cscope
-" -------------------------------------
-" look for tags first in `pwd`, and work up the tree towards the root if not found
-set tags=./tags;/
-
-" cscope
-if has("cscope")
-    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-    set cscopetag
-    " check ctags for definition of a symbol before checking cscope, set to 0
-    " if you want the reverse search order.
-    set csto=1
-    " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    " show msg when any other cscope db added
-    set cscopeverbose
-
-    " The following maps all invoke one of the following cscope search types:
-    "
-    "   's'   symbol: find all references to the token under cursor
-    "   'g'   global: find global definition(s) of the token under cursor
-    "   'c'   calls:  find all calls to the function name under cursor
-    "   't'   text:   find all instances of the text under cursor
-    "   'e'   egrep:  egrep search for the word under cursor
-    "   'f'   file:   open the filename under cursor
-    "   'i'   includes: find files that include the filename under cursor
-    "   'd'   called: find functions that function under cursor calls
-    "
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-    " Using 'CTRL-spacebar' to open results in horizontal split
-    nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-    set timeoutlen=1000
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
-
-" -------------------------------------
+filetype plugin indent on
 
 
 "--------------------------------------
@@ -140,24 +47,24 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-set hlsearch            " highlight searched phrases.
-set incsearch           " highlight as you type your search.
+set incsearch           " search as you type your search.
 set ignorecase          " make searches case-insensitive.
 set smartcase           " but be smart about case
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
+"--------------------------------------
+"               Editor
+"--------------------------------------
 syntax enable           " enable syntax highlighting
 
-" Color scheme
-colorscheme github
+colorscheme github      " color scheme
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
+set textwidth=80        " make it obvious where 80 characters is
+set colorcolumn=+1      " highlight column after 'textwidth'
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -170,8 +77,11 @@ set tabstop=4           " tab spacing
 set softtabstop=4       " unify
 set shiftwidth=4        " indent/outdent by 4 columns
 
+" Enable spellchecking for Markdown
+autocmd FileType markdown setlocal spell
+
 autocmd FileType c setlocal noet sw=4 ts=4 sts=4 cindent cinoptions=(0
-autocmd FileType python setlocal et sw=4 sts=4
+autocmd FileType python,java setlocal et sw=4 sts=4
 
 
 "--------------------------------------
@@ -179,9 +89,9 @@ autocmd FileType python setlocal et sw=4 sts=4
 "--------------------------------------
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \ exe "normal! g`\"" |
-     \ endif
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \ exe "normal! g`\"" |
+  \ endif
 
 " Remember info about open buffers on close
 set viminfo^=%
@@ -196,9 +106,10 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+
 "--------------------------------------
 "       Source user local config
 "--------------------------------------
 if filereadable(expand("~/.vimrc.local"))
-  so ~/.vimrc.local
+  source ~/.vimrc.local
 endif

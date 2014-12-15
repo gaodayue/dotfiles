@@ -8,6 +8,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Bundle 'croaky/vim-colors-github'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -23,7 +24,7 @@ filetype plugin indent on
 "--------------------------------------
 "              Key Map
 "--------------------------------------
-" Use <Space> for (search) and Ctrl-<Space> for (backwards search)                      
+" Use <Space> for (search) and Ctrl-<Space> for (backwards search)
 map <space> /
 map <c-space> ?
 
@@ -42,7 +43,7 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-" Close the current buffer                                          
+" Close the current buffer
 map <leader>bd :bd<cr>
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -149,12 +150,22 @@ set incsearch           " highlight as you type your search.
 set ignorecase          " make searches case-insensitive.
 set smartcase           " but be smart about case
 " Visual mode pressing * or # searches for the current selection
-vnoremap <silent> * :call VisualSelection('f', '')<CR>                                    
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
 syntax enable           " enable syntax highlighting
-set background=dark
-colorscheme solarized   " set colorscheme
+
+" Color scheme
+colorscheme github
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
 
 set autoindent          " auto-indent
 set smartindent         " be smart about indent

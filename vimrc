@@ -189,3 +189,10 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+"--------------------------------------
+"       Source user local config
+"--------------------------------------
+if filereadable(expand("~/.vimrc.local"))
+  so ~/.vimrc.local
+endif

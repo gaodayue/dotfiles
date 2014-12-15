@@ -1,21 +1,24 @@
 [user]
-	name = gaodayue
-	email = dygao66@gmail.com
+  name = gaodayue
+  email = dygao66@gmail.com
+[color]
+  ui = auto
 [core]
-	excludesfile = ~/.gitignore_global
-[credential]
-	helper = osxkeychain
+  excludesfile = ~/.gitignore_global
 [diff]
-	tool = diffmerge
+  tool = diffmerge
 [difftool]
-	prompt = false
+  prompt = false
 [difftool "diffmerge"]
-	cmd = "diffmerge \"$LOCAL\" \"$REMOTE\""
+  cmd = "diffmerge \"$LOCAL\" \"$REMOTE\""
 [merge]
-	tool = diffmerge
+  tool = diffmerge
 [mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
+  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  trustExitCode = true
 [alias]
-	lol = log --oneline --graph --decorate
-    history = log --follow -p
+  history = log --follow -p
+  lol = log --oneline --graph --decorate
+  st = status
+[include]
+  path = ~/.gitconfig.local

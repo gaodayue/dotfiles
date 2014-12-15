@@ -4,6 +4,8 @@ ZSH="$HOME/.oh-my-zsh"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="avit"
+# customize LS_COLORS
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

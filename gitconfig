@@ -19,6 +19,6 @@
 [alias]
   history = log --follow -p
   lol = log --oneline --graph --decorate
-  st = status
+  st = status -s
 [include]
   path = ~/.gitconfig.local

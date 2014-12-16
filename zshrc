@@ -93,3 +93,6 @@ function make_cscope {
         echo "cscope doesn't exist!"
     fi
 }
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

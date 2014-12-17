@@ -50,6 +50,10 @@ set noswapfile
 set incsearch           " search as you type your search.
 set ignorecase          " make searches case-insensitive.
 set smartcase           " but be smart about case
+
+set backspace=2         " backspace deletes like most programs in insert mode
+set laststatus=2        " Always display the status line
+
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>

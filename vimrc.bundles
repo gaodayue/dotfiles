@@ -11,7 +11,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Bundle 'croaky/vim-colors-github'
+Plugin 'croaky/vim-colors-github'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'

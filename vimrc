@@ -47,6 +47,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+set hlsearch            " hightlight search result
 set incsearch           " search as you type your search.
 set ignorecase          " make searches case-insensitive.
 set smartcase           " but be smart about case
@@ -63,11 +64,11 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 "--------------------------------------
 syntax enable           " enable syntax highlighting
 
-colorscheme github      " color scheme
+" colorscheme github      " color scheme
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-set textwidth=80        " make it obvious where 80 characters is
+set textwidth=120       " make it obvious where 120 characters is
 set colorcolumn=+1      " highlight column after 'textwidth'
 
 " Display extra whitespace
@@ -81,11 +82,14 @@ set tabstop=4           " tab spacing
 set softtabstop=4       " unify
 set shiftwidth=4        " indent/outdent by 4 columns
 
+set foldlevelstart=20   " open all folds on start
+
 " Enable spellchecking for Markdown
 autocmd FileType markdown setlocal spell
 
 autocmd FileType c setlocal noet sw=4 ts=4 sts=4 cindent cinoptions=(0
 autocmd FileType python,java setlocal et sw=4 sts=4
+autocmd FileType python setlocal foldmethod=indent
 
 
 "--------------------------------------

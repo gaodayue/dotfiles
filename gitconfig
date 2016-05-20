@@ -1,6 +1,6 @@
 [user]
-  name = gaodayue
-  email = dygao66@gmail.com
+	name = gaodayue
+	email = gaodayue@meituan.com
 [color]
   ui = auto
 [core]
@@ -22,3 +22,5 @@
   st = status -s
 [include]
   path = ~/.gitconfig.local
+[credential]
+	helper = osxkeychain

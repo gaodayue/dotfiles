@@ -31,6 +31,7 @@ Temporary Items
 ## Directory-based project format
 .idea/
 /*.iml
+*.iml
 
 ## File-based project format
 *.ipr

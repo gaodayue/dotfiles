@@ -72,7 +72,7 @@ set textwidth=120       " make it obvious where 120 characters is
 set colorcolumn=+1      " highlight column after 'textwidth'
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·
 
 set autoindent          " auto-indent
 set smartindent         " be smart about indent
@@ -83,6 +83,9 @@ set softtabstop=4       " unify
 set shiftwidth=4        " indent/outdent by 4 columns
 
 set foldlevelstart=20   " open all folds on start
+
+" Detect FileType of *.json file to be json, rather than javascript
+autocmd BufRead,BufNewFile *.json set filetype=json
 
 " Enable spellchecking for Markdown
 autocmd FileType markdown setlocal spell

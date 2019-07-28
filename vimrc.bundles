@@ -39,6 +39,10 @@ map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 let NERDTreeIgnore=['.o$[[file]]', '.class[[file]]', '.pyc[[file]]']
 
+" => Syntastic
+" -------------------------------------
+let g:syntastic_json_checkers=['jsonlint']
+
 " => Ctrl-P
 " -------------------------------------
 " let g:ctrlp_working_path_mode = 0

@@ -38,6 +38,7 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 let NERDTreeIgnore=['.o$[[file]]', '.class[[file]]', '.pyc[[file]]']
+let NERDTreeIgnore=['\.o$', '\.class$', '\.pyc$']
 
 " => Syntastic
 " -------------------------------------

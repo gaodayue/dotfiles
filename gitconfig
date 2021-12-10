@@ -1,12 +1,13 @@
 [user]
 	name = gaodayue
-	email = gaodayue@meituan.com
+	email = gaodayue@bytedance.com
 [color]
   ui = auto
 [core]
   excludesfile = ~/.gitignore_global
 [diff]
   tool = diffmerge
+  ignoreSubmodules = dirty
 [difftool]
   prompt = false
 [difftool "diffmerge"]

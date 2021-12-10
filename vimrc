@@ -59,6 +59,11 @@ set laststatus=2        " Always display the status line
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
+if has("nvim")
+    " switch to normal mode for terminal window using <Esc>
+    tnoremap <Esc> <C-\><C-n>
+endif
+
 "--------------------------------------
 "               Editor
 "--------------------------------------
@@ -68,8 +73,8 @@ syntax enable           " enable syntax highlighting
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-set textwidth=120       " make it obvious where 120 characters is
-set colorcolumn=+1      " highlight column after 'textwidth'
+" set textwidth=120       " make it obvious where 120 characters is
+" set colorcolumn=+1      " highlight column after 'textwidth'
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·,nbsp:·

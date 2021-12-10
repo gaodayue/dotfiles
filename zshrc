@@ -72,6 +72,9 @@ plugins=(git tmux mvn aws kubectl docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
+# add user@host prefix to the prompt
+PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
+
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"

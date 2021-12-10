@@ -8,7 +8,7 @@ install_symlinks() {
 
   if [ -f $dst ]; then
     echo "remove $dst first"
-    rm $dst
+    rm -rf $dst
   fi
   echo "create symlink $dst -> $src"
   ln -s $src $dst

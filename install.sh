@@ -19,3 +19,5 @@ CONFIG_FILES='gitconfig gitignore_global tmux.conf vim vimrc vimrc.bundles zshrc
 for f in $CONFIG_FILES; do
   install_symlinks $f
 done
+
+echo "RUN the following command to install the zsh-autosuggestions plugin\n\$ git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM}/plugins/zsh-autosuggestions"

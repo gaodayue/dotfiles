@@ -72,11 +72,14 @@ let g:syntastic_json_checkers=['jsonlint']
 
 " => Ctrl-P
 " -------------------------------------
-" let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_cmd = 'CtrlPBuffer'
+" <leader>f for search in buffer
+nnoremap <silent> <leader>f :CtrlPBuffer<cr>
 let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+" let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+if executable('ag')
+    " Use ag for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " => ctags & cscope
 " -------------------------------------

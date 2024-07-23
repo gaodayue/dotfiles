@@ -69,9 +69,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux mvn aws kubectl docker docker-compose zsh-autosuggestions)
+plugins=(git mvn aws kubectl docker docker-compose zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
+# # use option+<- option+-> to move the cursor backward/forward a word
+# bindkey "[D" backward-word
+# bindkey "[C" forward-word
 
 # User configuration
 
